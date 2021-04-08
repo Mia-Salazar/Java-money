@@ -28,7 +28,8 @@ public class Usuario {
 		boolean correctDNI = matches.matches();
 		return correctDNI;
 	}
-	public String toString() {
-		return "A cambiar";
-	}
+    @Override
+    public String toString() {
+        return "Nombre: " + this.nombre + "\n" + "Edad: " + this.edad + "DNI: " + this.DNI;
+    }
 }
