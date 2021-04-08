@@ -49,6 +49,6 @@ public class Cuenta {
 	}
 	public String toString() {
 		return "El usuario es :" + usuario.getNombre() + "\n." +
-				"El saldo actual de la cuenta es de: " + this.saldo + "€";
+				"El saldo actual de la cuenta es de: " + this.saldo + "€.";
 	}
 }
