@@ -47,4 +47,7 @@ public class Cuenta {
 	public ArrayList<Gasto> getGastos() {
 		return this.gastos;
 	}
+	public String toString() {
+		return "El saldo actual de la cuenta es de: " + this.saldo + "€";
+	}
 }
