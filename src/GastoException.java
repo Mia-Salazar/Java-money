@@ -2,7 +2,7 @@ public class GastoException extends Exception {
 	String sms;
 	 
 	public GastoException() {
-		this.sms = "No hay saldo suficiente\n";
+		this.sms = "No hay saldo suficiente";
 	}
 	 @Override
 	 public String getMessage (){

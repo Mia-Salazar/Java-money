@@ -11,16 +11,16 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		
 		usuario = new Usuario();
-		System.out.println("Introduce el nombre del usuario\n");
+		System.out.println("Introduce el nombre del usuario");
 		nombre = sc.nextLine();
 	    while (nombre == "") {
 			System.out.println("Nombre introducido incorrecto");
-	        System.out.println("Introduce el Nombre del usuario válido\n");
+	        System.out.println("Introduce el Nombre del usuario válido");
 	        nombre = sc.nextLine();
 	    }
 		usuario.setNombre(nombre);
 		
-		System.out.println("Introduce la edad del usuario\n");
+		System.out.println("Introduce la edad del usuario");
 		do {
 		    try {
 		    	int edadNueva;
@@ -29,16 +29,16 @@ public class Main {
 		    	usuario.setEdad(edadNueva);
 		    } catch (NumberFormatException error) {
 				System.out.println("Edad introducida incorrecta");
-		        System.out.println("Introduce la edad del usuario válida\n");
+		        System.out.println("Introduce la edad del usuario válida");
 		    }
 		} while (usuario.getEdad() == 0);
 		
 		
-		System.out.println("Introduce el DNI del usuario\n");
+		System.out.println("Introduce el DNI del usuario");
 		DNI = sc.nextLine();
 	    while (!usuario.setDNI(DNI)) {
 			System.out.println("DNI introducido incorrecto");
-	        System.out.println("Introduce el DNI del usuario válido\n");
+	        System.out.println("Introduce el DNI del usuario válido");
 	 		DNI = sc.nextLine();
 	    }
 	    cuenta = new Cuenta(usuario);
@@ -66,17 +66,17 @@ public class Main {
 					+ "3 Mostrar gastos\n"
 					+ "4 Mostrar ingresos\n"
 					+ "5 Mostrar saldo\n"
-					+ "0 Salir\n");
+					+ "0 Salir");
 			number = sc.nextInt();
 			sc.nextLine();
 			switch(number) {
 			  case 1:
 				double cantidadGasto = 0;
-				System.out.println("Introduce la descripción\n");
+				System.out.println("Introduce la descripción");
 				description = sc.nextLine();
 				do {
 				    try {
-						System.out.println("Introduce la cantidad\n");
+						System.out.println("Introduce la cantidad");
 						dinero = sc.nextLine();
 						cantidadGasto = Double.parseDouble(dinero);
 						gasto = new Gasto(cantidadGasto, description);
@@ -90,11 +90,11 @@ public class Main {
 			    break;
 			  case 2:
 				double cantidadIngreso = 0;
-				System.out.println("Introduce la descripción\n");
+				System.out.println("Introduce la descripción");
 				description = sc.nextLine();
 				do {
 				    try {
-						System.out.println("Introduce la cantidad\n");
+						System.out.println("Introduce la cantidad");
 						dinero = sc.nextLine();
 						cantidadIngreso = Double.parseDouble(dinero);
 						ingreso = new Ingreso(cantidadIngreso, description);
