@@ -13,12 +13,25 @@ public class Main {
 		usuario = new Usuario();
 		System.out.println("Introduce el nombre del usuario");
 		nombre = sc.nextLine();
+	    while (nombre == "") {
+			System.out.println("Nombre introducido incorrecto");
+	        System.out.println("Introduce el Nombre del usuario válido");
+	        nombre = sc.nextLine();
+	    }
 		usuario.setNombre(nombre);
 		
 		System.out.println("Introduce la edad del usuario");
-		edad = sc.nextInt();
-		sc.nextLine();
-		usuario.setEdad(edad);
+		do {
+		    try {
+				edad = sc.nextInt();
+				sc.nextLine();
+		    	usuario.setEdad(edad);
+		    } catch (NumberFormatException error) {
+				System.out.println("Edad introducida incorrecta");
+		        System.out.println("Introduce la edad del usuario válida");
+		    }
+		} while (usuario.getEdad() == 0);
+		
 		
 		System.out.println("Introduce el DNI del usuario");
 		DNI = sc.nextLine();
@@ -31,6 +44,7 @@ public class Main {
 	    System.out.println("Usuario creado correctamente");
 	    
 	    menu(cuenta);
+	    sc.close();
 		
 	}
 	
@@ -100,6 +114,6 @@ public class Main {
 			}
 			
 		} while(number != 0);
-
+		sc.close();
 	}
 }
