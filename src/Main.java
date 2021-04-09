@@ -4,40 +4,41 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		String nombre;
-		int edad;
+		String edad;
 		String DNI;
 		Usuario usuario;
 		Cuenta cuenta;
 		Scanner sc = new Scanner(System.in);
 		
 		usuario = new Usuario();
-		System.out.println("Introduce el nombre del usuario");
+		System.out.println("Introduce el nombre del usuario\n");
 		nombre = sc.nextLine();
 	    while (nombre == "") {
 			System.out.println("Nombre introducido incorrecto");
-	        System.out.println("Introduce el Nombre del usuario válido");
+	        System.out.println("Introduce el Nombre del usuario válido\n");
 	        nombre = sc.nextLine();
 	    }
 		usuario.setNombre(nombre);
 		
-		System.out.println("Introduce la edad del usuario");
+		System.out.println("Introduce la edad del usuario\n");
 		do {
 		    try {
-				edad = sc.nextInt();
-				sc.nextLine();
-		    	usuario.setEdad(edad);
+		    	int edadNueva;
+				edad = sc.nextLine();
+				edadNueva = Integer.parseInt(edad);
+		    	usuario.setEdad(edadNueva);
 		    } catch (NumberFormatException error) {
 				System.out.println("Edad introducida incorrecta");
-		        System.out.println("Introduce la edad del usuario válida");
+		        System.out.println("Introduce la edad del usuario válida\n");
 		    }
 		} while (usuario.getEdad() == 0);
 		
 		
-		System.out.println("Introduce el DNI del usuario");
+		System.out.println("Introduce el DNI del usuario\n");
 		DNI = sc.nextLine();
 	    while (!usuario.setDNI(DNI)) {
 			System.out.println("DNI introducido incorrecto");
-	        System.out.println("Introduce el DNI del usuario válido");
+	        System.out.println("Introduce el DNI del usuario válido\n");
 	 		DNI = sc.nextLine();
 	    }
 	    cuenta = new Cuenta(usuario);
@@ -50,7 +51,7 @@ public class Main {
 	
 	public static void menu(Cuenta cuenta) {
 		int number;
-		double dinero;
+		String dinero;
 		Gasto gasto;
 		Ingreso ingreso;
 		String description;
@@ -64,30 +65,45 @@ public class Main {
 					+ "2 Introduce un nuevo ingreso\n"
 					+ "3 Mostrar gastos\n"
 					+ "4 Mostrar ingresos\n"
-					+ "5 Mostrar salgo\n"
-					+ "0 Salir");
+					+ "5 Mostrar saldo\n"
+					+ "0 Salir\n");
 			number = sc.nextInt();
 			sc.nextLine();
 			switch(number) {
 			  case 1:
-				System.out.println("Introduce la descripción");
+				double cantidadGasto = 0;
+				System.out.println("Introduce la descripción\n");
 				description = sc.nextLine();
-				System.out.println("Introduce la cantidad");
-				dinero = sc.nextInt();
-				sc.nextLine();
-				gasto = new Gasto(dinero, description);
-				cuenta.addGastos(description, dinero);
-				System.out.println(gasto.toString());
+				do {
+				    try {
+						System.out.println("Introduce la cantidad\n");
+						dinero = sc.nextLine();
+						cantidadGasto = Double.parseDouble(dinero);
+						gasto = new Gasto(cantidadGasto, description);
+						cuenta.addGastos(description, cantidadGasto);
+						System.out.println(gasto.toString());
+				    } catch (NumberFormatException error) {
+						System.out.println("La cantidad solo puede ser un valor numérico");
+				    }
+				} while (cantidadGasto == 0);
+
 			    break;
 			  case 2:
-				System.out.println("Introduce la descripción");
+				double cantidadIngreso = 0;
+				System.out.println("Introduce la descripción\n");
 				description = sc.nextLine();
-				System.out.println("Introduce la cantidad");
-				dinero = sc.nextInt();
-				sc.nextLine();
-				ingreso = new Ingreso(dinero, description);
-				cuenta.addIngresos(description, dinero);
-				System.out.println(ingreso.toString());
+				do {
+				    try {
+						System.out.println("Introduce la cantidad\n");
+						dinero = sc.nextLine();
+						cantidadIngreso = Double.parseDouble(dinero);
+						ingreso = new Ingreso(cantidadIngreso, description);
+						cuenta.addIngresos(description, cantidadIngreso);
+						System.out.println(ingreso.toString());
+				    } catch (NumberFormatException error) {
+						System.out.println("La cantidad solo puede ser un valor numérico");
+				    }
+				} while (cantidadIngreso == 0);
 			    break;
 			  case 3:
 				gastos = cuenta.getGastos();
