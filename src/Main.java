@@ -52,8 +52,6 @@ public class Main {
 	public static void menu(Cuenta cuenta) {
 		int number;
 		String dinero;
-		Gasto gasto;
-		Ingreso ingreso;
 		String description;
 		Scanner sc = new Scanner(System.in);
 		ArrayList<Gasto> gastos;
@@ -79,14 +77,12 @@ public class Main {
 						System.out.println("Introduce la cantidad");
 						dinero = sc.nextLine();
 						cantidadGasto = Double.parseDouble(dinero);
-						gasto = new Gasto(cantidadGasto, description);
 						cuenta.addGastos(description, cantidadGasto);
-						System.out.println(gasto.toString());
 				    } catch (NumberFormatException error) {
 						System.out.println("La cantidad solo puede ser un valor numérico");
 				    }
 				} while (cantidadGasto == 0);
-
+				System.out.println("Saldo restante: " + cuenta.getSaldo());
 			    break;
 			  case 2:
 				double cantidadIngreso = 0;
@@ -97,13 +93,12 @@ public class Main {
 						System.out.println("Introduce la cantidad");
 						dinero = sc.nextLine();
 						cantidadIngreso = Double.parseDouble(dinero);
-						ingreso = new Ingreso(cantidadIngreso, description);
 						cuenta.addIngresos(description, cantidadIngreso);
-						System.out.println(ingreso.toString());
 				    } catch (NumberFormatException error) {
 						System.out.println("La cantidad solo puede ser un valor numérico");
 				    }
 				} while (cantidadIngreso == 0);
+				System.out.println("Saldo restante: " + cuenta.getSaldo() + "€");
 			    break;
 			  case 3:
 				gastos = cuenta.getGastos();

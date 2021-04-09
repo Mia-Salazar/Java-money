@@ -22,10 +22,12 @@ public class Usuario {
 		return DNI;
 	}
 	public boolean setDNI(String DNI) {
-		this.DNI = DNI;
 		Pattern pattern = Pattern.compile("[0-9]{8}(?:-)*[A-Z a-z]");
 		Matcher matches = pattern.matcher(DNI);
 		boolean correctDNI = matches.matches();
+		if (correctDNI) {
+			this.DNI = DNI;
+		}
 		return correctDNI;
 	}
     @Override

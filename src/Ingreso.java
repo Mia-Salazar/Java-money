@@ -6,6 +6,6 @@ public class Ingreso extends Dinero {
 	}
 	@Override
 	public String toString() {
-		return "Ingreso: " + description + ", cantidad: " + dinero + "€";
+		return "Ingreso: " + description + ", cantidad:" + dinero + "€";
 	}
 }

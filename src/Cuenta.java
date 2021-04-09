@@ -29,14 +29,13 @@ public class Cuenta {
 	public double addGastos(String description, double cantidad) {
 		try {
 			if (this.saldo - cantidad < 0) {
-				this.saldo = 0;
 				throw new GastoException();
 			} else {
 				this.gastos.add(new Gasto(cantidad, description));
 				this.saldo = this.saldo - cantidad;
 			}
 		} catch(GastoException error) {
-			System.out.print(error.getMessage());
+			System.out.print(error.getMessage() + "\n");
 		}
 		return this.saldo;
 	}
@@ -48,7 +47,9 @@ public class Cuenta {
 		return this.gastos;
 	}
 	public String toString() {
-		return "El usuario es :" + usuario.getNombre() + "\n." +
+		return "El usuario es:" + usuario.getNombre() + "\n." +
+				"Su edad es:" + usuario.getEdad() + "\n." +
+				"Su DNI es:" + usuario.getDNI() + "\n." +
 				"El saldo actual de la cuenta es de: " + this.saldo + "€.";
 	}
 }

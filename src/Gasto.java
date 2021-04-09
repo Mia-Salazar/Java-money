@@ -6,6 +6,6 @@ public class Gasto extends Dinero {
 	}
 	@Override
 	public String toString() {
-		return "Gasto: " + description + ", cantidad: " + dinero + "€";
+		return "Gasto: " + description + ", cantidad:" + dinero + "€";
 	}
 }
