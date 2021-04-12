@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
@@ -116,17 +117,19 @@ public class Main {
 				System.out.println("Saldo restante: " + cuenta.getSaldo() + "€");
 			    break;
 			  case 3:
-				//Mostramos la lista de Gastos
+				//Mostramos la lista de Gastos usando un Iterator
 				gastos = cuenta.getGastos();
-				for (int i = 0; i < gastos.size(); i++) {
-					System.out.println(gastos.get(i).toString());
+				Iterator<Gasto> iteradorGastos = gastos.iterator();
+				while (iteradorGastos.hasNext()){
+					System.out.println(iteradorGastos.next().toString());
 				}
 			    break;
 			  case 4:
-				 //Mostramos la lista de Ingresos
+				 //Mostramos la lista de Ingresos usando un Iterator
 				ingresos = cuenta.getIngresos();
-				for (int i = 0; i < ingresos.size(); i++) {
-					System.out.println(ingresos.get(i).toString());
+				Iterator<Ingreso> iteradorIngresos = ingresos.iterator();
+				while (iteradorIngresos.hasNext()){
+					System.out.println(iteradorIngresos.next().toString());
 				}
 			    break;
 			    
