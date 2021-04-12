@@ -1,8 +1,10 @@
 
 public abstract class Dinero {
+	//Declaramos las variables necesarias
 	protected double dinero;
 	protected String description;
 	
+	//Declaramos los setters y los getters
 	public double getDinero() {
 		return dinero;
 	}
